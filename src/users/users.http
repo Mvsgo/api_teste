@@ -1,0 +1,8 @@
+### create user 1
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username": "eu",
+    "password": "123456"
+}

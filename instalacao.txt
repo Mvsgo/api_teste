@@ -1,0 +1,10 @@
+npm install bcrypt
+npm install -D @types/bcrypt
+
+npm install uuid
+npm install -D @types/uuid
+
+npm install @nestjs/config
+npm install @nestjs/jwt
+
+npm install class-validator class-transformer

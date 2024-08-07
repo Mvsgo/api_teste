@@ -1,0 +1,46 @@
+### create task 1
+POST http://localhost:3000/task
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2Q3ZWU5ZS02NGEwLTQ5ZDMtYTBhMy1mODQzNDkxNzY1YzciLCJ1c2VybmFtZSI6ImV1IiwiaWF0IjoxNzIzMDM3ODgxLCJleHAiOjE3MjMwNDE0ODF9.M_Co4q1eBWR5Pgd0f9oK6wnbnQHp43p-wdI9mbb1R9o
+{
+    "title": "titulo 1",
+    "description": "descrição",
+    "expirationDate": "2024/08/07"
+}
+
+### create task 2
+POST http://localhost:3000/task
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2Q3ZWU5ZS02NGEwLTQ5ZDMtYTBhMy1mODQzNDkxNzY1YzciLCJ1c2VybmFtZSI6ImV1IiwiaWF0IjoxNzIzMDM3ODgxLCJleHAiOjE3MjMwNDE0ODF9.M_Co4q1eBWR5Pgd0f9oK6wnbnQHp43p-wdI9mbb1R9o
+
+{
+    "title": "titulo",
+    "description": "descrição",
+    "expirationDate": "2024-01-01"
+}
+
+### find id
+GET http://localhost:3000/task/001
+
+### find all
+GET http://localhost:3000/task
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2Q3ZWU5ZS02NGEwLTQ5ZDMtYTBhMy1mODQzNDkxNzY1YzciLCJ1c2VybmFtZSI6ImV1IiwiaWF0IjoxNzIzMDM3ODgxLCJleHAiOjE3MjMwNDE0ODF9.M_Co4q1eBWR5Pgd0f9oK6wnbnQHp43p-wdI9mbb1R9o
+
+### find filter
+GET http://localhost:3000/task?status=TO_DO&title=titulo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Y2Q3ZWU5ZS02NGEwLTQ5ZDMtYTBhMy1mODQzNDkxNzY1YzciLCJ1c2VybmFtZSI6ImV1IiwiaWF0IjoxNzIzMDM3ODgxLCJleHAiOjE3MjMwNDE0ODF9.M_Co4q1eBWR5Pgd0f9oK6wnbnQHp43p-wdI9mbb1R9o
+
+### update
+PUT http://localhost:3000/task
+Content-Type: application/json
+
+{
+    "id": "002",
+    "title": "titulo alterado",
+    "description": "descrição",
+    "status": "done",
+    "expirationDate": "2024-01-01"
+}
+
+### delete
+DELETE http://localhost:3000/task/001
