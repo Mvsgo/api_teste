@@ -8,3 +8,11 @@ npm install @nestjs/config
 npm install @nestjs/jwt
 
 npm install class-validator class-transformer
+
+npm install typeorm @nestjs/typeorm
+
+npm install pg
+
+npm install dotenv
+
+docker compose up -d
