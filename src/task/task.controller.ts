@@ -16,11 +16,11 @@ import { AuthGuard } from 'src/auth/auth.guard';
 @UseGuards(AuthGuard)
 @Controller('task')
 export class TaskController {
-  constructor(private readonly taskService: TaskService) {}
+  constructor(private readonly taskService: TaskService) { }
 
   @Post()
-  async create(@Body() task: TaskDto) {
-    await this.taskService.create(task);
+  async create(@Body() task: TaskDto): Promise<TaskDto> {
+    return await this.taskService.create(task);
     //console.log(task);
   }
 
@@ -33,15 +33,13 @@ export class TaskController {
   */
 
   @Get()
-  findAll(@Query() params?: FindAllParameters): TaskDto[] {
-    //console.log('---------- findFilter');
-    return this.taskService.findFilter(params);
-    //console.log(id);
+  async findFilter(@Query() params: FindAllParameters): Promise<TaskDto[]> {
+    return await this.taskService.findFilter(params);
   }
 
   @Get('/:id')
-  findById(@Param('id') id: string): TaskDto {
-    return this.taskService.findById(id);
+  async findById(@Param('id') id: string): Promise<TaskDto> {
+    return await this.taskService.findById(id);
     //console.log(id);
   }
 

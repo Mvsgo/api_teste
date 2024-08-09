@@ -15,4 +15,17 @@ npm install pg
 
 npm install dotenv
 
+---- executar -----
+
+npm run start:dev
+
 docker compose up -d
+
+docker container stop task-api-teste-db
+docker container stop nest-pgadmin4
+
+docker container rm task-api-teste-db
+docker container rm nest-pgadmin4
+
+docker rmi dpage/pgadmin4
+docker rmi postgres

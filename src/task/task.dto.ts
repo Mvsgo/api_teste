@@ -1,4 +1,5 @@
 import {
+  IsDateString,
   IsEnum,
   IsOptional,
   IsString,
@@ -32,8 +33,8 @@ export class TaskDto {
   @IsOptional()
   status: string;
 
-  //IsDateString({ strict: false, strictSeparator: false })
-  experationDate: Date;
+  @IsDateString()
+  expirationDate: Date;
 }
 
 export interface FindAllParameters {
