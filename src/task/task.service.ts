@@ -64,34 +64,22 @@ export class TaskService {
 
   }
 
-  update(task: TaskDto) {
-    const taskIndex = this.tasks.findIndex((t) => t.id === task.id);
-    //console.log(taskIndex);
+  async update(id: string, task: TaskDto) {
+    const foundTask = await this.taskRepository.findOne({ where: { id } });
 
-    if (taskIndex >= 0) {
-      this.tasks[taskIndex] = task;
-      return;
+    if (!foundTask) {
+      throw new HttpException(`Task com id ${id} não encontrado`, HttpStatus.BAD_REQUEST);
     }
 
-    throw new HttpException(
-      'Task with id ${id} not found',
-      HttpStatus.BAD_REQUEST,
-    );
+    return this.taskRepository.update(id, this.mapDtoToEntity(task));
   }
 
-  deleteById(id: string) {
-    const taskIndex = this.tasks.findIndex((t) => t.id === id);
-    //console.log(taskIndex);
-
-    if (taskIndex >= 0) {
-      this.tasks.splice(taskIndex, 1);
-      return;
+  async deleteById(id: string) {
+    const deleteResult = await this.taskRepository.delete(id);
+    if (!deleteResult.affected) {
+      throw new HttpException(`Task with id ${id} not found`, HttpStatus.BAD_REQUEST,
+      );
     }
-
-    throw new HttpException(
-      'Task with id $id not found',
-      HttpStatus.BAD_REQUEST,
-    );
   }
 
   private mapEntityToDto(TaskEntity: TaskEntity): TaskDto {
@@ -101,6 +89,16 @@ export class TaskService {
       description: TaskEntity.description,
       expirationDate: TaskEntity.expirationDate,
       status: EnumTaskStatus[TaskEntity.status],
+    };
+  }
+
+  private mapDtoToEntity(TaskDto: TaskDto): Partial<TaskEntity> {
+    return {
+      //id: TaskDto.id,
+      title: TaskDto.title,
+      description: TaskDto.description,
+      expirationDate: TaskDto.expirationDate,
+      status: TaskDto.status.toString()
     };
   }
 }

@@ -26,23 +26,24 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkNjI5YjdlM
 
 ### find all
 GET http://localhost:3000/task
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkNjI5YjdlMS01ZWQ4LTQyMjktYjJlZC00YmY2YWM2OGM4MTgiLCJ1c2VybmFtZSI6ImV1IiwiaWF0IjoxNzIzMTYwMjY1LCJleHAiOjE3MjMxNjM4NjV9.vAeKM-gBUMj-S8Hg14fd7hFBvvks-ASfahteH8BXgR8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkNjI5YjdlMS01ZWQ4LTQyMjktYjJlZC00YmY2YWM2OGM4MTgiLCJ1c2VybmFtZSI6ImV1IiwiaWF0IjoxNzIzMjQwMDg4LCJleHAiOjE3MjMyNDM2ODh9.Ciww6XfG3r0gxKXJz_q-XcEytiOyDPUI8WBheKN_2d8
 
 ### find filter
 GET http://localhost:3000/task?status=TO_DO&task?title=titulo 1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkNjI5YjdlMS01ZWQ4LTQyMjktYjJlZC00YmY2YWM2OGM4MTgiLCJ1c2VybmFtZSI6ImV1IiwiaWF0IjoxNzIzMTYwMjY1LCJleHAiOjE3MjMxNjM4NjV9.vAeKM-gBUMj-S8Hg14fd7hFBvvks-ASfahteH8BXgR8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkNjI5YjdlMS01ZWQ4LTQyMjktYjJlZC00YmY2YWM2OGM4MTgiLCJ1c2VybmFtZSI6ImV1IiwiaWF0IjoxNzIzMjQwMDg4LCJleHAiOjE3MjMyNDM2ODh9.Ciww6XfG3r0gxKXJz_q-XcEytiOyDPUI8WBheKN_2d8
 
 ### update
-PUT http://localhost:3000/task
+PUT http://localhost:3000/task/ff7bb843-f9f7-46ad-8b63-05b9384000e1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkNjI5YjdlMS01ZWQ4LTQyMjktYjJlZC00YmY2YWM2OGM4MTgiLCJ1c2VybmFtZSI6ImV1IiwiaWF0IjoxNzIzMjQwMDg4LCJleHAiOjE3MjMyNDM2ODh9.Ciww6XfG3r0gxKXJz_q-XcEytiOyDPUI8WBheKN_2d8
 
 {
-    "id": "002",
-    "title": "titulo alterado",
-    "description": "descrição",
-    "status": "done",
-    "expirationDate": "2024-01-01"
+    "title": "alterado sem o status",
+    "description": "descriok",
+    "status": "IN_PROGRESS",
+    "expirationDate": "2024-02-01"
 }
 
 ### delete
-DELETE http://localhost:3000/task/001
+DELETE http://localhost:3000/task/e0881f1b-cca9-4087-86df-6acfecbdb66f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkNjI5YjdlMS01ZWQ4LTQyMjktYjJlZC00YmY2YWM2OGM4MTgiLCJ1c2VybmFtZSI6ImV1IiwiaWF0IjoxNzIzMjQwMDg4LCJleHAiOjE3MjMyNDM2ODh9.Ciww6XfG3r0gxKXJz_q-XcEytiOyDPUI8WBheKN_2d8
