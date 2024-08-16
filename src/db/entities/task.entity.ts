@@ -14,6 +14,9 @@ export class TaskEntity {
   @Column({ type: 'varchar' })
   status: string;
 
+  @Column({ type: 'varchar' })
+  tempo: string;
+
   @Column({ type: 'timestamptz', name: 'expiration_date' })
   expirationDate: Date;
 }

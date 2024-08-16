@@ -14,7 +14,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         database: configService.get<string>('DB_NAME'),
         entities: [__dirname + '/entities/**'],
         migrations: [__dirname + '/migrations/*.ts'],
-        synchronize: true, // se true cria tabela auto eu acho rsss
+        synchronize: false, // se true cria tabela auto eu acho rsss
       }),
       inject: [ConfigService],
     }),

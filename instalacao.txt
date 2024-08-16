@@ -23,6 +23,8 @@ npm install passport passport-jwt @nestjs/passport
 npm run start:dev
 
 docker compose up -d
+docker compose down
+
 
 docker container stop task-api-teste-db
 docker container stop nest-pgadmin4
@@ -30,5 +32,7 @@ docker container stop nest-pgadmin4
 docker container rm task-api-teste-db
 docker container rm nest-pgadmin4
 
+#Cria script banco
+npm run typeorm:generate --name=DeveIniciarBanco
 docker rmi dpage/pgadmin4
 docker rmi postgres
