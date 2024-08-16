@@ -15,6 +15,9 @@ npm install pg
 
 npm install dotenv
 
+trocar jeito jwt
+npm install passport passport-jwt @nestjs/passport
+
 ---- executar -----
 
 npm run start:dev

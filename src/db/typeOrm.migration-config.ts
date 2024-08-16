@@ -13,8 +13,10 @@ const dataSourceOptions: DataSourceOptions = {
   username: configService.get<string>('DB_USERNAME'),
   password: configService.get<string>('DB_PASSWORD'),
   database: configService.get<string>('DB_NAME'),
-  entities: [__dirname + '/entities/**'],
+  entities: [__dirname + '/entities/*.ts'],
   migrations: [__dirname + '/migrations/*.ts'],
   synchronize: false,
+  migrationsRun: true,
 };
+console.log(`-------------------------->  ${__dirname}`);
 export default new DataSource(dataSourceOptions);
