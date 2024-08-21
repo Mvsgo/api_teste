@@ -1,4 +1,5 @@
 services:
+
   postgres:
     image: postgres
     restart: always
@@ -9,6 +10,10 @@ services:
       POSTGRES_DB: task-api-teste
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 12345678
+    volumes:
+      - api_teste-volume:/var/lib/postgresql/data
+    networks:
+      - api_teste-network
 
   pgadmin:
     image: dpage/pgadmin4
@@ -21,3 +26,12 @@ services:
       - '5050:80'
     depends_on:
       - postgres
+    networks:
+      - api_teste-network
+
+networks:
+  api_teste-network:
+    driver: bridge
+
+volumes:
+  api_teste-volume:
